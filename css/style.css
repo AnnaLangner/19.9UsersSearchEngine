@@ -1,0 +1,40 @@
+body {
+  background-color: #6B72E6;
+}
+
+body .root {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
+body .root .container {
+  padding-top: 20px;
+  text-align: center;
+  background-color: #aaffaa;
+  width: 800px;
+}
+
+body .root .container .engine {
+  color: #0000A2;
+}
+
+body .root .container .form .label {
+  padding-right: 10px;
+  color: #0000A2;
+}
+
+body .root .container .form .input {
+  border-radius: 4px;
+  border: 3px solid #0000A2;
+  background-color: #c0ebf7;
+}
+
+body .root .container .userList {
+  color: #0000A2;
+  padding-bottom: 20px;
+}
+/*# sourceMappingURL=style.css.map */
