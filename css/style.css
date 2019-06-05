@@ -3,9 +3,12 @@ body {
 }
 
 body .root {
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
 }
 
 body .root .container {
@@ -34,5 +37,4 @@ body .root .container .userList {
   color: #0000A2;
   padding-bottom: 20px;
 }
-
 /*# sourceMappingURL=style.css.map */
