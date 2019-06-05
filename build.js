@@ -8,8 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
-
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
 
@@ -42,7 +40,7 @@ var App = function (_React$Component) {
             fetch(url).then(function (response) {
                 return response.json();
             }).then(function (responseJson) {
-                return _this2.setState({ users: responseJson.item });
+                return _this2.setState({ users: responseJson.items });
             });
         }
     }, {
@@ -52,18 +50,24 @@ var App = function (_React$Component) {
 
             return React.createElement(
                 'div',
-                null,
+                { className: 'container' },
+                React.createElement(
+                    'h1',
+                    { className: 'engine' },
+                    'User search engine'
+                ),
                 React.createElement(
                     'form',
-                    { onSubmit: function onSubmit(event) {
+                    { className: 'form', onSubmit: function onSubmit(event) {
                             return _this3.onSubmit(event);
                         } },
                     React.createElement(
                         'label',
-                        { htmlFor: 'searchText' },
+                        { className: 'label', htmlFor: 'searchText' },
                         'Search by user name'
                     ),
                     React.createElement('input', {
+                        className: 'input',
                         type: 'text',
                         id: 'searchText',
                         onChange: function onChange(event) {
@@ -71,6 +75,11 @@ var App = function (_React$Component) {
                         },
                         value: this.state.searchText
                     })
+                ),
+                React.createElement(
+                    'h2',
+                    { className: 'userList' },
+                    'User list'
                 ),
                 React.createElement(UserList, { users: this.state.users })
             );
@@ -137,3 +146,5 @@ var User = function (_React$Component3) {
 
     return User;
 }(React.Component);
+
+ReactDOM.render(React.createElement(App, null), document.getElementById('root'));

@@ -1,8 +1,3 @@
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
-
 class App extends React.Component {
     constructor() {
         super();
@@ -22,21 +17,24 @@ class App extends React.Component {
         const url = `https://api.github.com/search/users?q=${searchText}`;
         fetch(url)
             .then(response => response.json())
-            .then(responseJson => this.setState({users: responseJson.item}));
+            .then(responseJson => this.setState({users: responseJson.items}));
     }
 
     render() {
         return (
-            <div>
-                <form onSubmit={event => this.onSubmit(event)}>
-                    <label htmlFor={'searchText'}>Search by user name</label>
+            <div className={'container'}>
+                <h1 className={'engine'}>User search engine</h1>
+                <form className={'form'} onSubmit={event => this.onSubmit(event)}>
+                    <label className={'label'} htmlFor={'searchText'}>Search by user name</label>
                     <input
+                        className={'input'}
                         type={'text'}
                         id={'searchText'}
                         onChange={event => this.onChangeHandle(event)}
                         value={this.state.searchText}
                     />
                 </form>
+                <h2 className={'userList'}>User list</h2>
                 <UserList users={this.state.users}/>
             </div>
         )
@@ -67,3 +65,5 @@ class User extends React.Component {
         );
     }
 }
+
+ReactDOM.render(<App/>, document.getElementById('root'));
